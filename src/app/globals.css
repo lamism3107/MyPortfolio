@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+:root {
+  --primaryBg: white;
+  --secondaryBg: #f0f0f0;
+  --primaryText: #black;
+  --softBg: #f1f1f1;
+  --secondaryText: #626262;
+  --primeColor: #dc19b2;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #e3e2e2;
+}
+
+.dark {
+  --primaryBg: #1f1436;
+  --primaryText: #ddd;
+  --secondaryBg: #1b1a55;
+  --scondaryText: #c9c9c9;
+  --softBg: #2d2b8c;
+}
+.light {
+  --primaryBg: white;
+  --secondaryBg: #f0f0f0;
+  --softBg: #f7f7f7;
+  --primaryText: #black;
+  --secondaryText: #626262;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--softBg);
+  color: var(--primaryText);
+  min-width: 100vw;
+}
+
+.wrapper {
+  max-width: 1536px;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive screen  */
+@media screen and (max-width: 1536px) {
+  .wrapper {
+    max-width: 1366px;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .wrapper {
+    max-width: 1280px;
+  }
+}
+
+/* @media screen and (max-width: 1280px) {
+  .wrapper {
+    max-width: 1024px;
+  }
+} */
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    max-width: 768px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 680px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .wrapper {
+    max-width: 560px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar track */
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background: #f5f5f5; /* Background color of the track */
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #ddd; /* Background color of the thumb */
+    border-radius: 4px; /* Rounded corners for the thumb */
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ccc; /* Change thumb color on hover */
+  }
+}

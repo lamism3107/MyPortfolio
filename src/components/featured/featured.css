@@ -1,0 +1,28 @@
+@media screen and (max-width: 1280px) {
+  .featured__heading {
+    font-size: 32px;
+    line-height: 1.4;
+  }
+}
+@media screen and (max-width: 768px) {
+  .featured__post {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .featured-post__content {
+    gap: 12px;
+  }
+  .featured-post__img {
+    object-fit: cover;
+  }
+  .featured-post__title {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .featured-post__desc {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+  .featured-post__content button {
+  }
+}

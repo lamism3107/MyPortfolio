@@ -1,0 +1,21 @@
+@media screen and (max-width: 1024px) {
+  .footer-link-list {
+    gap: 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .footer-link-list {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer-link-list {
+    font-size: 14px;
+  }
+}
