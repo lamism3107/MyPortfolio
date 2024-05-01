@@ -8,10 +8,6 @@ import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
-  // useEffect(() => {
-  //   window.localStorage.setItem("login", "false");
-  // }, []);
-  //
   const { theme } = useContext(ThemeContext);
   const router = useRouter();
   const { data, status } = useSession();

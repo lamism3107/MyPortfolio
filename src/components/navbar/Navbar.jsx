@@ -16,7 +16,6 @@ function Navbar() {
   const pathname = usePathname();
   const navRef = useRef();
   useEffect(() => {
-    const container = document.querySelector(".container");
     const handleScroll = () => {
       if (window.scrollY >= 80) {
         if (theme === "light") {
