@@ -43,17 +43,7 @@ function Navbar() {
           <div className="logo text-3xl font-bold flex-1 flex items-center ">
             LamDev
           </div>
-          {/* <div className="social flex-1 flex gap-2">
-        <Link href="/">
-          <FaFacebook className="w-6 h-6 " />
-        </Link>
-        <Link href="/">
-          <FaInstagram className="w-6 h-6 " />
-        </Link>
-        <Link href="/">
-          <FaGithub className="w-6 h-6 " />
-        </Link>
-      </div> */}
+
           <ul className="navlink flex-2 flex items-center justify-center  gap-8 text-xl">
             <li>
               <Link

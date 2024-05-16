@@ -2,10 +2,17 @@
 import React, { useContext } from "react";
 import { FiSearch } from "react-icons/fi";
 import CategoryTag from "../categoryTag/CategoryTag";
-import RecommendPost from "../recommendPost/RecommendPost";
 import { ThemeContext } from "@/context/ThemeContext";
+import useSWR from "swr";
+import fetcher from "@/app/fetcher/fetcher";
+import RecommendedPostList from "../recommendedPostList/RecommendedPostList";
 function BlogSidebar() {
   const { theme } = useContext(ThemeContext);
+  const { data, error, isLoading } = useSWR("/api/categories", fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
+
   return (
     <div className="sticky top-2  z-50 filter-box w-[30%] pl-5">
       {/* Tìm kiếm bài viết  */}
@@ -43,48 +50,14 @@ function BlogSidebar() {
             theme === "dark" ? "bg-secondary" : "bg-primary"
           }`}
         >
-          <CategoryTag name={"REACJT"} size="md" />
-          <CategoryTag name={"TYPESCRIPT"} size="md" />
-          <CategoryTag name={"NEXTJS"} size="md" />
+          {data.map((item) => (
+            <CategoryTag key={item._id} item={item} size="md" />
+          ))}
         </div>
       </div>
 
       {/* Bài viết đề xuất  */}
-      <div className="recommend-post flex flex-col gap-3 mt-7">
-        <label
-          className="font-semibold text-xl w-full  mb-3"
-          htmlFor="search-post"
-        >
-          Các bài viết được đề xuất
-        </label>
-        <RecommendPost
-          title="Loerem fđsdfádfdfdfsadfsadfsdfsadfád"
-          thumbnail="/food.png"
-          date="30.4.2024"
-          category={[
-            <CategoryTag key={"ấdfasd"} size={"sm"} name="REACT" />,
-            <CategoryTag key={"ấdfassdfd"} size={"sm"} name="NEXTJS" />,
-          ]}
-        />
-        <RecommendPost
-          title="Loerem fđsdfádfdfdfsadfsadfsdfsadfád"
-          thumbnail="/food.png"
-          date="30.4.2024"
-          category={[
-            <CategoryTag key={"ấdfasd"} size={"sm"} name="REACT" />,
-            <CategoryTag key={"ấdfassdfd"} size={"sm"} name="NEXTJS" />,
-          ]}
-        />
-        <RecommendPost
-          title="Loerem fđsdfádfdfdfsadfsadfsdfsadfád"
-          thumbnail="/food.png"
-          date="30.4.2024"
-          category={[
-            <CategoryTag key={"ấdfasd"} size={"sm"} name="REACT" />,
-            <CategoryTag key={"ấdfassdfd"} size={"sm"} name="NEXTJS" />,
-          ]}
-        />
-      </div>
+      <RecommendedPostList />
     </div>
   );
 }

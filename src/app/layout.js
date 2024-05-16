@@ -5,7 +5,8 @@ import Footer from "@/components/footer/Footer";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import ThemeProvider from "@/providers/ThemeProvider";
 import AuthProvider from "@/providers/AuthProvider";
-
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
+          {/* <Provider store={store}> */}
           <ThemeContextProvider>
             <ThemeProvider>
               <div className="container ">
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
               </div>
             </ThemeProvider>
           </ThemeContextProvider>
+          {/* </Provider> */}
         </AuthProvider>
       </body>
     </html>

@@ -1,26 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import "../categoryList/category.css";
-function CategoryCard({ category, bgColor }) {
+import useSWR from "swr";
+import fetcher from "@/app/fetcher/fetcher";
+import { ThemeContext } from "@/context/ThemeContext";
+
+function CategoryCard({ item }) {
+  const { theme } = useContext(ThemeContext);
   return (
-    <>
-      <Link
-        style={{ backgroundColor: `${bgColor}` }}
-        href={`/blogs?category=${category}`}
-        className="category flex items-center gap-2 capitalize w-[15%] h-[80px] justify-center rounded-xl"
-      >
+    <Link
+      href={`/blog/posts?cat=${item.slug}`}
+      className={`category flex items-center gap-2 capitalize w-[15%] h-[80px] shadow-md  justify-center rounded-xl ${
+        theme === "dark" ? "bg-secondary" : "bg-primary"
+      }`}
+    >
+      {item?.img && (
         <Image
-          src={`/${category}.png`}
+          src={item?.img}
           alt=""
           width={32}
           height={32}
           className="w-12 h-12 rounded-full "
         />
+      )}
 
-        <h3 className="drop-shadow-glow font-semibold">{category}</h3>
-      </Link>
-    </>
+      <h3 className="drop-shadow-glow font-semibold">{item.title}</h3>
+    </Link>
   );
 }
 export default CategoryCard;

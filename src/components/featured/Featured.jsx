@@ -48,18 +48,9 @@ function Featured() {
           </p>
           <Link
             href={"/"}
-            className="py-3 px-4 rounded-lg w-max hover:brightness-75 "
-            style={
-              theme === "dark"
-                ? {
-                    backgroundColor: "var(--primeColor)",
-                    color: "#fff",
-                  }
-                : {
-                    backgroundColor: "#0f172a",
-                    color: "#fff",
-                  }
-            }
+            className={`py-2 px-3 rounded-lg w-max hover:bg-prime transition-all ease-out duration-150 ${
+              theme === "dark" ? "bg-prime text-white" : "bg-black text-white"
+            }`}
           >
             Xem thêm
           </Link>
