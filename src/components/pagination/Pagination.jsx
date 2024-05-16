@@ -10,10 +10,10 @@ const Pagination = ({ page, hasPrev, hasNext }) => {
   return (
     <div className="pagination flex justify-between">
       <button
-        className={`py-2 px-3 rounded-lg w-max hover:bg-prime transition-all ease-out duration-150 disabled:brightness-75 disabled:hover:bg-black  ${
+        className={`py-2 px-3 rounded-lg w-max hover:bg-prime transition-all ease-out duration-150  disabled:brightness-75   ${
           theme === "dark"
-            ? "bg-prime text-white hover:scale-105 transition-all duration-150 ease-out"
-            : "bg-black text-white"
+            ? "bg-prime text-white hover:scale-105 transition-all duration-150 ease-out disabled:hover:bg-prime disabled:hover:scale-100"
+            : "bg-black text-white disabled:hover:bg-black "
         }`}
         disabled={!hasPrev}
         onClick={() => router.push(`?page=${page - 1}`)}
@@ -22,11 +22,10 @@ const Pagination = ({ page, hasPrev, hasNext }) => {
       </button>
       <button
         disabled={!hasNext}
-        // className="cursor-pointer py-2 px-4 rounded-lg w-max hover:brightness-75"
-        className={`py-2 px-3 rounded-lg w-max hover:bg-prime transition-all ease-out duration-150  disabled:brightness-75 disabled:hover:bg-black   ${
+        className={`py-2 px-3 rounded-lg w-max hover:bg-prime transition-all ease-out duration-150  disabled:brightness-75   ${
           theme === "dark"
-            ? "bg-prime text-white hover:scale-105 transition-all duration-150 ease-out"
-            : "bg-black text-white"
+            ? "bg-prime text-white hover:scale-105 transition-all duration-150 ease-out disabled:hover:bg-prime disabled:hover:scale-100"
+            : "bg-black text-white disabled:hover:bg-black "
         }`}
         onClick={() => router.push(`?page=${page + 1}`)}
       >

@@ -36,7 +36,7 @@ function RecommendPost({ item }) {
             </span>
           </div>
           <Link
-            href={`/posts/${item.slug}`}
+            href={`/blog/${item.slug}`}
             className="recommentd-post__title text-[14px] font-semibold min-h-[50px] line-clamp-2 "
           >
             {item.title}
