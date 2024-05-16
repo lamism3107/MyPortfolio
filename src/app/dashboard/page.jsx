@@ -5,7 +5,7 @@ function Dashboard() {
   return (
     <div>
       {/* <TextEditor /> */}
-      <AddPost />
+{/*       <AddPost /> */}
     </div>
   );
 }
